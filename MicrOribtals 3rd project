@@ -1,0 +1,31 @@
+from datetime import datetime
+
+def calculate_age(date1, date2):
+    # Convert strings to datetime objects
+    date_format = "%Y-%m-%d %H:%M:%S"
+    datetime1 = datetime.strptime(date1, date_format)
+    datetime2 = datetime.strptime(date2, date_format)
+
+    # Calculate the difference between the two dates
+    timedelta = datetime2 - datetime1
+
+    # Calculate the difference in various units
+    minutes = timedelta.total_seconds() / 60
+    hours = minutes / 60
+    days = timedelta.days
+    months = days / 30  # Approximate months
+    years = days / 365  # Approximate years
+
+    # Display the results
+    print(f"Minutes: {minutes:.2f}")
+    print(f"Hours: {hours:.2f}")
+    print(f"Days: {days}")
+    print(f"Months: {months:.2f}")
+    print(f"Years: {years:.2f}")
+
+if __name__ == "__main__":
+    # Example usage:
+    date1 = input("Enter the first date and time (YYYY-MM-DD HH:MM:SS): ")
+    date2 = input("Enter the second date and time (YYYY-MM-DD HH:MM:SS): ")
+
+    calculate_age(date1, date2)
